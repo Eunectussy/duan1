@@ -1,4 +1,21 @@
 
+<?php
+$soDanhMucTrenTrang = 5;
+
+// Xác định trang hiện tại
+$trangHienTai = isset($_GET['trang']) && is_numeric($_GET['trang']) ? (int)$_GET['trang'] : 1;
+
+// Tính vị trí bắt đầu lấy dữ liệu
+$viTriBatDau = ($trangHienTai - 1) * $soDanhMucTrenTrang;
+
+// Lấy danh sách danh mục từ vị trí bắt đầu
+$danhSachDanhMuc = array_slice($listsp, $viTriBatDau, $soDanhMucTrenTrang);
+// var_dump($danhSachDanhMuc);
+// die;
+// Sửa câu truy vấn SQL trong phần lấy danh sách danh mục
+$sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
+
+?>
        <div class="table" >
         <div class="title" ><h2 style="text-align: center;"> QUẢN LÍ SẢN PHẨM</h2></div>
         <!--
@@ -40,14 +57,13 @@
                 <th scope="col">Name</th>
                 <th scope="col">Gía</th>
                 <th scope="col">Hình</th>
-                <th scope="col">Lượt xem</th>
                 <th scope="col">Số lượng</th>
                 <th scope="col">Hành động</th>
               </tr>
             </thead>
             <tbody>
             <?php
-                        foreach ($listsp as $sanpham) {
+                        foreach ($danhSachDanhMuc as $sanpham) {
                             extract($sanpham);
                             $suasp= "index.php?act=suasp&id=".$id;
                             $xoasp= "index.php?act=xoasp&id=".$id;
@@ -63,7 +79,6 @@
                             <td>'.$price.' </td>
                             <td>'.$img.' </td>
                             <td>'.$luotxem.' </td>
-                            <td>'.$soluong.' </td>
                             <td> 
                             <a href="'.$xoasp.'"><button type="button" class="btn btn-danger">Delete</button></a>
                             <a href="'.$suasp.'"><button type="button" class="btn btn-success">Edit</button></a></td>
@@ -72,9 +87,22 @@
                     ?>
             </tbody>
           </table>
+          <div><nav aria-label="Page navigation example" style="margin-left:450px">
+  <ul class="pagination">
+  <li class="page-item"><a class="page-link" href="index.php?act=listsp&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
+    for ($i = 1; $i <= ceil(count($listsp) / $soDanhMucTrenTrang); $i++) {
+      echo '
+      <li class="page-item"><a class="page-link" href="index.php?act=listsp&trang=' . $i . '">' . $i . '</a></li>';
+    }
+    ?>
+<li class="page-item"><a class="page-link" href="index.php?act=listsp&trang=<?php echo $trangHienTai + 1; ?>">Next</a></li>
+</nav> </div>
     </div>
 </div>
+
 </div>
+
 </body>
+
 </html>
        

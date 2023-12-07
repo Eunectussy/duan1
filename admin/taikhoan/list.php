@@ -1,4 +1,22 @@
 <!-- taikhoan/list.php -->
+
+<?php
+$soDanhMucTrenTrang = 5;
+
+// Xác định trang hiện tại
+$trangHienTai = isset($_GET['trang']) && is_numeric($_GET['trang']) ? (int)$_GET['trang'] : 1;
+
+// Tính vị trí bắt đầu lấy dữ liệu
+$viTriBatDau = ($trangHienTai - 1) * $soDanhMucTrenTrang;
+
+// Lấy danh sách danh mục từ vị trí bắt đầu
+$danhSachDanhMuc = array_slice($listtk, $viTriBatDau, $soDanhMucTrenTrang);
+// var_dump($danhSachDanhMuc);
+// die;
+// Sửa câu truy vấn SQL trong phần lấy danh sách danh mục
+$sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
+
+?>
 <div class="table">    
     <div class="title" ><h2 style="text-align: center;"> QUẢN LÍ TÀI KHOẢN</h2></div>
     <a href="index.php?act=addtk"><button type="button" class="btn btn-primary" style="margin-left: 80px; margin-top:30px;">Add</button></a>  
@@ -16,7 +34,7 @@
         </thead>
         <tbody>
             <?php
-                foreach ($listtk as $taikhoan) {
+                foreach ($danhSachDanhMuc as $taikhoan) {
                     extract($taikhoan);
                     $lockUnlockUrl = $is_locked ? "index.php?act=unlock&id=".$id : "index.php?act=lock&id=".$id;
             ?>
@@ -40,4 +58,14 @@
             ?>
         </tbody>
     </table>
+    <div><nav aria-label="Page navigation example" style="margin-left:450px">
+  <ul class="pagination">
+  <li class="page-item"><a class="page-link" href="index.php?act=listtk&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
+    for ($i = 1; $i <= ceil(count($listtk) / $soDanhMucTrenTrang); $i++) {
+      echo '
+      <li class="page-item"><a class="page-link" href="index.php?act=listtk&trang=' . $i . '">' . $i . '</a></li>';
+    }
+    ?>
+<li class="page-item"><a class="page-link" href="index.php?act=listtk&trang=<?php echo $trangHienTai + 1; ?>">Next</a></li>
+</nav> </div>
 </div>
