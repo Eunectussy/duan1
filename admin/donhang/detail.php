@@ -2,6 +2,7 @@
 <?php
     if(is_array($listdh)){
         extract($listdh);
+        $ttdh=get_ttdh($bill_status);
     }
 ?>
       <form action="index.php?act=updatehd" method="post" >
@@ -63,19 +64,12 @@
   <option value="5">Đã Hủy</option>
 </select>
   </div>
+<?php }else{?>
+    <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Trạng thái đơn hàng</label> <br/>
+        <input name="pttt" value="<?php echo $ttdh?>" disabled disabled type="text" class="form-control" placeholder="Bank number" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
 <?php } ?>
-
-
-
-
-  <input type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id;?>">
-  <input type="submit" name="capnhat" value="Update" style=" padding: 10px 20px; 
-      font-size: 16px; 
-      cursor: pointer; 
-      background-color: #007BFF; 
-      color: #fff; 
-      border: none; 
-      border-radius: 5px;">
   <a href="index.php?act=listbill">  <input type="button" value="list" style=" padding: 10px 20px; 
       font-size: 16px; 
       cursor: pointer; 

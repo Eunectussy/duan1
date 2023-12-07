@@ -145,8 +145,8 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                 if (isset($_GET["id"]) ) {
                     $id = $_GET["id"];
                     $list_sanpham_cart = list_sanpham_cart($id);
-                    $soluongct=$_POST["soluong"];
-                    $soluongmua = $soluongct + 1;
+    
+                    $soluongmua = 1;
 
     
                     if (is_array($list_sanpham_cart)) {
