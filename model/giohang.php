@@ -118,7 +118,9 @@ function confirm_donhang($id){
     $sql="update donhang set bill_status =4 where id=".$id;
     pdo_execute($sql);
 }
-
-
+function decrease_sanpham($id,$value){
+    $sql="update sanpham set soluong=soluong-".$value." where id=".$id;
+    pdo_execute($sql);
+}
 
 ?>

@@ -262,7 +262,8 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                               if (isset($_SESSION['user'])){
                               foreach($_SESSION['cart'] as $cart){
                                 insert_cart($_SESSION['user']['id'],$cart['id'],$cart['img'],$cart['names'],$cart['price'],$cart['soluongmua'],$cart['price']*$cart['soluongmua'],$idbill);
-                              }
+                                decrease_sanpham($cart['id'],$cart['soluongmua']);
+                            }
                             }
                               ;
     
@@ -291,6 +292,7 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                               if (isset($_SESSION['user'])){
                               foreach($_SESSION['cart'] as $cart){
                                 insert_cart($_SESSION['user']['id'],$cart['id'],$cart['img'],$cart['names'],$cart['price'],$cart['soluongmua'],$cart['price']*$cart['soluongmua'],$idbill);
+                                decrease_sanpham($cart['id'],$cart['soluongmua']);
                               }
                             }
                               ;
