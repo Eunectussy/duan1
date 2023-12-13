@@ -8,8 +8,10 @@
     width: 400px;
     height: auto;
     padding: 25px;
-    position: absolute;
-    left: 50%; top:50%;
+    position: relative;
+    top: 400px;
+    left: 750px;
+    bottom: 200px;
     transform: translate(-50%,-50%);
     box-shadow: 0px 0px 20px 0px #000;
 }
@@ -67,7 +69,9 @@ form>a:hover{
    color:  #007BFF;
    
 }
-
+.footer{
+    margin-top:200px;
+}
 </style>
 <form method="post" action="index.php?act=dangky" class="box">
     <h3>ĐĂNG KÝ</H3>

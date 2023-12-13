@@ -8,8 +8,11 @@
     width: 400px;
     height: auto;
     padding: 25px;
-    position: absolute;
-    left: 50%; top:50%;
+    padding: 25px;
+    position: relative;
+    top: 400px;
+    left: 750px;
+    bottom: 200px;
     transform: translate(-50%,-50%);
     box-shadow: 0px 0px 20px 0px #000;
 }
@@ -67,7 +70,9 @@ form>a:hover{
    color:  black;
    
 }
-
+.footer{
+    margin-top:200px;
+}
 </style>    
     <form method="post" action="index.php?act=dangnhap" class="box"> 
         <h3>ĐĂNG NHẬP TÀI KHOẢN</H3>
