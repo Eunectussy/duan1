@@ -1,12 +1,10 @@
 </div>
 </div>
-  <div class="typewriter">
-  <h1 id="text">Sản phẩm</h1>
-  </div><br>
-  <div class="typewriter">
-  <h1 id="text">Sản phẩm</h1>
+  <div class="typewriter" style=" margin-top: 110px;">
+  <h1 id="text" style= "padding-top:20px;">Sản phẩm</h1>
   </div>
-  <form action="index.php?act=sanpham" method="post">
+  <form action="index.php?act=sanpham" method="post"  style="margin-left: 540px;
+    margin-bottom: 30px;">
         <div class="container mt-4">
           <div class="row">
             <div class="col-md-4 custom-margin">

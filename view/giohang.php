@@ -1,9 +1,22 @@
 <link rel="stylesheet" href="css/home.css">
+<style>
+    .quantity-btn {
+    cursor: pointer;
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+}
 
+.quantity-value {
+    margin: 0 5px;
+    font-size: 16px;
+}
 
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+</style>
+<!-- Thêm vào phần đầu của tệp HTML của bạn -->
+
 <link href="assets/css/spct.css" rel="stylesheet" />
 <div class="container">
     <section class="shopping-cart-area">
@@ -53,9 +66,15 @@
                                         <td class="product-price">
                                             <span class="price">£<?php echo $item['price']; ?></span>
                                         </td>
-                                        <td class="product-price">
+                                        <!-- <td class="product-price">
                                             <span class="price"><?php echo $item['soluongmua']; ?></span>
-                                        </td>
+                                        </td> -->
+                                            <td class="product-quantity">
+                                                <button class="quantity-btn" data-product-id="<?php echo $item['soluongmua']; ?>" data-action="increase">+</button>
+                                                <span class="quantity-value"><?php echo $item['soluongmua']; ?></span>
+                                                <button class="quantity-btn" data-product-id="<?php echo $item['soluongmua']; ?>" data-action="decrease">-</button>
+                                            </td>
+                                        
                                         <!-- <td class="product-price">
                                             <span class="price"><?php echo $item['luotxem']; ?></span>
                                         </td> -->
@@ -64,9 +83,6 @@
                                         </td>
                                     </tr>
                                     <?php }  ?>
-
-
-
                                     <tr class="actions">
                                         <td class="border-0" colspan="6">
                                             <a href="index.php" class="btn-theme btn-flat">View Product</a>
@@ -87,6 +103,35 @@
                 </div>
             </div>
         </div>
+        <script>
+                                           document.addEventListener('DOMContentLoaded', function () {
+                                            var quantityButtons = document.querySelectorAll('.quantity-btn');
+
+                                            quantityButtons.forEach(function (button) {
+                                                button.addEventListener('click', function () {
+                                                    var productId = this.getAttribute('data-product-id');
+                                                    var action = this.getAttribute('data-action');
+                                                    var quantityElement = document.querySelector('.quantity-value[data-product-id="' + productId + '"]');
+                                                    var currentQuantity = parseInt(quantityElement.textContent);
+
+                                                    // Thực hiện tăng hoặc giảm số lượng
+                                                    if (action === 'increase') {
+                                                        currentQuantity += 1;
+                                                    } else if (action === 'decrease' && currentQuantity > 1) {
+                                                        currentQuantity -= 1;
+                                                    }
+
+                                                    // Cập nhật số lượng trên giao diện
+                                                    quantityElement.textContent = currentQuantity;
+
+                                                    // Log giá trị của productId sau mỗi lần click
+                                                    console.log(currentQuantity);
+                                                });
+                                            });
+                                        });
+                                       
+                                        </script>
         <script src="assets/js/jquery-main.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/custom.js"></script>
+        <!-- Thêm vào cuối tệp HTML của bạn -->
