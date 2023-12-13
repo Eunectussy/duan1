@@ -58,11 +58,7 @@ $sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
             ?>
         </tbody>
     </table>
-<<<<<<< HEAD
     <div><nav aria-label="Page navigation example" style="margin-left:450px">
-=======
-    <div class="textcolor"><nav aria-label="Page navigation example" style="margin-left:450px">
->>>>>>> c82dc803c8f4e5b737e17a16f6879e04ef8aa11b
   <ul class="pagination">
   <li class="page-item"><a class="page-link" href="index.php?act=listtk&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
     for ($i = 1; $i <= ceil(count($listtk) / $soDanhMucTrenTrang); $i++) {
