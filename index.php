@@ -50,7 +50,6 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                     $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
                     $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
                     $address = isset($_POST['address']) ? $_POST['address'] : '';
-            
                     // Kiểm tra các điều kiện validate
                     if (empty($user) || empty($email) || empty($pass) || empty($tel) || empty($address)) {
                         $thongbao = "Vui lòng điền đầy đủ thông tin.";
@@ -84,13 +83,16 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                 } else {
                     // Thực hiện đăng nhập
                     $checkuser = checkuser($email, $pass);
-                    if (is_array($checkuser)) {
+                    if ($checkuser['is_locked']) {
+                        $thongbao="Tài khoản đã bị khóa";
+                    }
+                    elseif (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
                         $thongbao = "Đăng nhập thành công";
                         header("Location: index.php");
                         exit();
                     } else {
-                        $thongbao = "Đăng nhập thất bại";
+                        $thongbao = "Sai mật khẩu hoặc email";
                     }
                 }
             }

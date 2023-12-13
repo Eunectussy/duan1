@@ -2,6 +2,13 @@
 // Số danh mục hiển thị trên mỗi trang
 $soDanhMucTrenTrang = 5;
 
+<<<<<<< HEAD
+=======
+<?php
+// Số danh mục hiển thị trên mỗi trang
+$soDanhMucTrenTrang = 5;
+
+>>>>>>> c82dc803c8f4e5b737e17a16f6879e04ef8aa11b
 // Xác định trang hiện tại
 $trangHienTai = isset($_GET['trang']) ? $_GET['trang'] : 1;
 
@@ -51,7 +58,11 @@ $sql = "SELECT * FROM danhmuc LIMIT $viTriBatDau, $soDanhMucTrenTrang";
 </table>
 
 <!-- Hiển thị các liên kết phân trang -->
+<<<<<<< HEAD
 <div><nav aria-label="Page navigation example" style="margin-left:450px">
+=======
+<div class="textcolor"><nav aria-label="Page navigation example" style="margin-left:450px">
+>>>>>>> c82dc803c8f4e5b737e17a16f6879e04ef8aa11b
   <ul class="pagination">
   <li class="page-item"><a class="page-link" href="index.php?act=listdm&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
     for ($i = 1; $i <= ceil(count($listdm) / $soDanhMucTrenTrang); $i++) {
@@ -60,4 +71,9 @@ $sql = "SELECT * FROM danhmuc LIMIT $viTriBatDau, $soDanhMucTrenTrang";
     }
     ?>
 <li class="page-item"><a class="page-link" href="index.php?act=listdm&trang=<?php echo $trangHienTai + 1; ?>">Next</a></li>
+<<<<<<< HEAD
 </nav>  </div>
+=======
+</nav>  </div>
+
+>>>>>>> c82dc803c8f4e5b737e17a16f6879e04ef8aa11b

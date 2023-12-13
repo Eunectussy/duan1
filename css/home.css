@@ -2,6 +2,9 @@
     display: flex;
     
 }
+.menu-container{
+  text-decoration: none;
+}
 img {
     flex: 1;
     margin: 5px; /* Khoảng cách giữa các ảnh */
@@ -159,7 +162,7 @@ font-family: 'Quicksand', sans-serif;
     width: 23%; 
     padding: 10px;
     box-sizing: border-box; 
-    border: none; 
+    border: none;
     margin: 5px; 
     text-align: center; /* Căn giữa nội dung trong thẻ */
   }
