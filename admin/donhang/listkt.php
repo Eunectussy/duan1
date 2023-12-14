@@ -61,13 +61,13 @@ $sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
           </table>
           <div class="textcolor"><nav aria-label="Page navigation example" style="margin-left:450px">
   <ul class="pagination">
-  <li class="page-item"><a class="page-link" href="index.php?act=list$listbill&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
+  <li class="page-item"><a class="page-link" href="index.php?act=listbill&trang=<?php echo $trangHienTai-1;?>">Previous</a></li>    <?php
     for ($i = 1; $i <= ceil(count($listbill) / $soDanhMucTrenTrang); $i++) {
       echo '
-      <li class="page-item"><a class="page-link" href="index.php?act=list$listbill&trang=' . $i . '">' . $i . '</a></li>';
+      <li class="page-item"><a class="page-link" href="index.php?act=listbill&trang=' . $i . '">' . $i . '</a></li>';
     }
     ?>
-<li class="page-item"><a class="page-link" href="index.php?act=list$listbill&trang=<?php echo $trangHienTai + 1; ?>">Next</a></li>
+<li class="page-item"><a class="page-link" href="index.php?act=listbill&trang=<?php echo $trangHienTai + 1; ?>">Next</a></li>
 </nav> </div>
     </div>
 </div>

@@ -34,7 +34,7 @@
                                         <th class="product-name">Product</th>
                                         <th class="product-price">Price</th>
                                         <th class="product-quantity">Quantity</th>
-                                        <th class="product-subtotal">Unit price</th>
+                                        <th class="product-subtotal">Total</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -45,10 +45,17 @@
                                 }
                                 ?>
                                 <?php
+                                    $tong=0;
+                                    $ttien=0;
+                                    $hoadon='';
+                                    $tongsl=0;
                                     if (isset($_SESSION["cart"])) {
                                         if (count($_SESSION["cart"])!=0){
                                         foreach ($_SESSION["cart"] as $item) {
                                             extract($item);
+                                            $tong=$item['price']*$item['soluongmua'];
+                                            $ttien+=$tong;
+                                            $tongsl+=$item['soluongmua'];
                                             ?>
                                 <tbody>
                                     <tr class="cart-product-item">
@@ -77,7 +84,7 @@
                                             <span class="price"><?php echo $item['luotxem']; ?></span>
                                         </td> -->
                                         <td class="product-subtotal">
-                                            <span class="price">£<?php echo $item['price']; ?></span>
+                                            <span class="price">£<?php echo $tong; ?></span>
                                         </td>
                                     </tr>
                                     <?php }  ?>
