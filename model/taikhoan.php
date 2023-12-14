@@ -17,6 +17,11 @@ function loadall_taikhoan(){
             $listdm = pdo_query($sql);
             return $listdm;
 }
+function loadone_taikhoan($id){
+    $sql="select*  from user where id=".$id;
+     $tk=pdo_query_one($sql);
+    return $tk;
+}
 function lock_taikhoan($id) {
     $sql = "UPDATE user SET is_locked = true WHERE id = ?";
     pdo_execute($sql, $id);
@@ -52,4 +57,23 @@ function validate_password_length($password) {
     // Các kiểm tra khác nếu cần
     return null; // Trả về null nếu không có lỗi
 }
+function get_tk($n){
+    switch ($n){
+        case '0':
+            $tt="Khách hàng";
+            break;
+        case '1':
+            $tt="Admin";
+            break;        
+        default:
+            $tt="Chờ kiểm tra";
+            break;
+    }
+    return $tt;
+}
+function role_taikhoan($id,$role){
+    $sql="update user set role='".$role."' where id=".$id;
+    pdo_execute($sql);
+}
+
 ?>

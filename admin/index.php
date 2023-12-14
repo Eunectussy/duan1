@@ -72,6 +72,29 @@ if(isset( $_GET['act'])){
             
                     include "taikhoan/add.php";
                     break;
+
+
+                    case 'phanquyen':
+                        if(isset($_GET['id'])&& ($_GET['id']>0)){
+                          $listtk=loadone_taikhoan($_GET['id']);
+                        }
+                        include "taikhoan/update.php";
+                    break; 
+                    case "updatetk":
+                        if(isset($_POST['updatetk'])&&($_POST['updatetk'])){
+                            $role=$_POST['phanquyen'];
+                            $id=$_POST['id'];
+                            role_taikhoan($id,$role);
+                            $thongbao=" Cập Nhật Thành Công";
+                        }
+                        $listtk= loadall_taikhoan();
+                        //  var_dump($listdm);
+                        // die;
+                            include "taikhoan/list.php";
+                            break; 
+
+
+
                     case 'adddm':
                         // Kiểm tra nếu người dùng đã nhấn nút "themmoi"
                         if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {

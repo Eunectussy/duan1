@@ -37,6 +37,8 @@ $sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
                 foreach ($danhSachDanhMuc as $taikhoan) {
                     extract($taikhoan);
                     $lockUnlockUrl = $is_locked ? "index.php?act=unlock&id=".$id : "index.php?act=lock&id=".$id;
+                    $phanquyen="index.php?act=phanquyen&id=".$id;
+                    $tttk=get_tk($taikhoan["role"]);
             ?>
                 <tr>
                     <td><?php echo $id; ?></td>
@@ -44,11 +46,17 @@ $sql = "SELECT * FROM a LIMIT $viTriBatDau, $soDanhMucTrenTrang";
                     <td><?php echo $email; ?></td>
                     <td><?php echo $address; ?></td>
                     <td><?php echo $tel; ?></td>
-                    <td><?php echo $is_locked ? 'Khóa' : 'Mở'; ?></td>
+                    <td><?php echo $tttk; ?></td>
                     <td>
                         <a href="<?php echo $lockUnlockUrl; ?>">
                             <button type="button" class="btn btn-<?php echo $is_locked ? 'success' : 'danger'; ?>">
                                 <?php echo $is_locked ? 'Mở' : 'Khóa'; ?>
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                    <a href="<?php echo $phanquyen; ?>">
+                            <button type="button" class="btn btn-success">Role
                             </button>
                         </a>
                     </td>
