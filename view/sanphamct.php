@@ -51,10 +51,6 @@
                     <span class="description">'.$luotxem.'</span>
                   </div>
                     <p>'.$mota.'</p>
-                    <form method="get">
-                    <label>Số lượng :</label>
-                        <input type="number" disabled name="soluong" value="1" min="1" max="99" step="1" style="text-align: center">
-                    </form>
                     <div class="product-quick-action">
                       <a class="btn-theme" href="index.php?act=themgiohang&&id='.$id.'">Thêm vào giỏ hàng</a>
                     </div>

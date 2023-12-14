@@ -70,9 +70,7 @@
                                             <span class="price"><?php echo $item['soluongmua']; ?></span>
                                         </td> -->
                                             <td class="product-quantity">
-                                                <button class="quantity-btn" data-product-id="<?php echo $item['soluongmua']; ?>" data-action="increase">+</button>
                                                 <span class="quantity-value"><?php echo $item['soluongmua']; ?></span>
-                                                <button class="quantity-btn" data-product-id="<?php echo $item['soluongmua']; ?>" data-action="decrease">-</button>
                                             </td>
                                         
                                         <!-- <td class="product-price">
